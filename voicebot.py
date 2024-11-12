@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 if "api_key" not in st.session_state:
-    st.session_state.api_key = ""
+    st.session_state.api_key = "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"
 
 if "chat" not in st.session_state:
     st.session_state.chat = []
