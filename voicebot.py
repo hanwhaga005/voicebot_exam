@@ -30,7 +30,7 @@ def STT(audio):
     # 음원 파일 열기
     audio_file = open(filename, "rb")
     # Whisper 모델을 활용해 텍스트 얻기
-    client = OpenAI(api_key='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')
+    client = OpenAI(api_key=st.session_state.api_key)
     transcript = client.audio.transcriptions.create(model="whisper-1", file=audio_file)
     audio_file.close()
     # 파일 삭제
@@ -39,7 +39,7 @@ def STT(audio):
 
 # st.session_state.api_key
 def ask_gpt(prompt, model):
-    client = OpenAI(api_key='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')
+    client = OpenAI(api_key=st.session_state.api_key)
     response = client.chat.completions.create(model=model, messages=prompt)
     return response.choices[0].message.content
 
